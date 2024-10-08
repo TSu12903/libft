@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                          :+:      :+:    :+:*/
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:22:09 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 11:22:13 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/08 13:56:34 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/08 13:56:37 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int i)
+int	ft_strlen(char const *s1)
 {
-	if ((i < 65 || i > 90) && (i < 97 || i > 122))
-		return (0);
-	return (1);
-}
+	int	i;
 
-/*
-#include <stdio.h>
-int	main(void)
-{
-	printf("%d", ft_isalpha(98));
+	i = 0;
+	while (s1[i])
+		i++;
+	return (i);
 }
-*/

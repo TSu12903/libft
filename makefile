@@ -10,16 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+AR = ar rcs
+CC = cc -c
 CFLAGS = -Wall -Werror -Wextra
 NAME= libft.a
-SRC= ft_strjoin.c
-OBJ= $(SRC:.c=.o)
+SRC= ft_strlen.c ft_strjoin.c ft_isdigit.c ft_isalpha.c
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) -o $@ $^ $(CFLAGS)
+$(NAME): $(SRC)
+	$(CC) $(SRC) $(CFLAGS)
+	$(AR) $(NAME) -o *.o
 
 clean:
 	rm -f *.o
