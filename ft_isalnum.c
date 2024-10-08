@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:43:03 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 13:43:07 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/08 17:40:54 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/08 17:40:58 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int i)
+int isalnum(int	num)
 {
-	if ((i < 48 || i > 57))
-		return (0);
-	return (1);
-}
-
-/*
-#include <stdio.h>
-int	main(void)
-{
-	printf("%d", ft_isalpha(47));
-}
-*/
+	if (ft_isalpha(num) || ft_isdigit(num))
+		return (1);
+	return (0);
