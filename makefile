@@ -13,7 +13,7 @@
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 NAME= libft.a
-SRC= ft_strjoin.c 
+SRC= ft_strjoin.c
 OBJ= $(SRC:.c=.o)
 
 all: $(NAME)
