@@ -12,20 +12,18 @@
 
 #include "libft.h"
 
-int	ft_isascii(int i)
+int	ft_isascii(int c)
 {
-	if (i >= 0 && i <= 127)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
-
-
 /*
 #include <stdio.h>
 
 int	main(void)
 {
-	printf("%d", ft_isascii(58));
+	printf("%d", ft_isascii(128));
 }
 
 int	main(int ac, char **av)

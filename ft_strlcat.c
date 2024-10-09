@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:56:34 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 13:56:37 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/09 18:33:03 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/09 18:33:05 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+unsigned int	strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t		i;
+	size_t		j;
+	const char	*s;
+	char		*d;
 
 	i = 0;
-	while (s[i])
+	j = 0;
+	d = (char *) dst;
+	s = (const char *) src;
+	while (d[i])
 		i++;
-	return (i);
+	while (s[j] && j < size)
+	{
+		d[j + i] = s[i];
+		j++;
+	}
+	d[j + i] = '\0';
+	while (s[j])
+		j++;
+	return (i + j);	
 }

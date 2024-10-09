@@ -17,14 +17,26 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
+#include <ctype.h>
 
 // ecrire size_t au lieu de unsigned int
-typedef size_t unsigned int
+// typedef size_t	unsigned int;
 
-char	*ft_strjoin(char const *s1, char const *s2);
-int	ft_isalpha(int i);
-int	ft_strlen(char const *s1);
-int	ft_isalpha(int i);
-int	ft_isascii(int i);
+char		*ft_strjoin(char const *s1, char const *s2);
+int		ft_isalpha(int c);
+int		ft_strlen(char const *s);
+int		ft_isascii(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+void		*ft_memset(void *s, int c, size_t n);
+int		ft_isprint(int c);
+char		*ft_strchr(const char *s, int c);
+void		ft_bzero(void *s, size_t n);
+void		*memcpy(void *dest, const void *src, size_t n);
+void		*ft_memcpy(void *dest, const void *src, size_t n);
+unsigned int	strlcat(char *dst, const char *src, size_t size);
+int		ft_strncmp(char *s1, char *s2, unsigned int n);
 
 #endif

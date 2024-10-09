@@ -1,23 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:56:34 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 13:56:37 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/09 14:42:39 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/09 14:42:41 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t		i;
+	const char	*s;
+	char		*t;
 
 	i = 0;
-	while (s[i])
+	t = (char *) dest;
+	s = (const char *) src;
+	if (s == 0 && t == 0)
+		return (0);
+	while (i < n)
+	{
+		t[i] = s[i];
 		i++;
-	return (i);
+	}
+	return ((void *) t);
 }
+
+/*
+int	main(void)
+{
+	char	src[10] = "abcdef";
+	char	dest[10] = "1234";
+	size_t	n = 5;
+	ft_memcpy(dest, src, n);
+	memcpy(dest, src, n);
+	printf("%s\n", dest);
+	printf("%s", dest);
+}
+*/

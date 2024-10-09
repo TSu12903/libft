@@ -1,23 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 13:56:34 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 13:56:37 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/09 10:15:33 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/09 10:15:37 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *s)
+void  *ft_memset(void *s, int c, size_t n)
 {
-	int	i;
+	char	*tab;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	tab = (char *) s;
+	while (n--)
+	{
+		*tab = c;
+		tab++;
+	}
+	return (s);
 }
+/*
+int	main(void)
+{
+	char str[] = "sasqdwwwwwwwwwwwwwasd";
+	int	c = 65;
+	size_t	count = '\0';
+	printf("%s\n", (char *) ft_memset(str,c,count));
+	printf("%s\n",(char *) memset(str,c,count));
+
+	
+	return (0);
+}
+*/

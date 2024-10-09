@@ -41,7 +41,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new);
 }
 
-
+/*
 #include <stdio.h>
 int	main(int argc, char **argv)
 {
@@ -54,5 +54,5 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-
+*/
 
