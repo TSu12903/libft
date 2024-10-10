@@ -42,7 +42,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 }
 
 /*
-#include <stdio.h>
 int	main(int argc, char **argv)
 {
 	char *new;

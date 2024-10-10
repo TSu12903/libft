@@ -1,45 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 09:05:14 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/10 09:06:49 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/10 11:12:08 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/10 11:12:11 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	size_t		i;
-	const char	*str;
+	int	i;
+	int	symbol;
+	int	nb;
 
-	str = (const char *) s;
 	i = 0;
-	while (i < n)
+	symbol = 1;
+	nb = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
 	{
-		if (str[i] == c)
-			return ((void *) &s[i]);
 		i++;
 	}
-	return (NULL);
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			symbol = -symbol ;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = 10 * nb + nptr[i] - '0';
+		i++;
+	}
+	return (nb * symbol);
 }
-
 /*
-int	main(void)
+int	main()
 {
-
-
-	int	c;
-	const char	str[36]= "abcdeffsewfsdfwef";
-	c = 'f';
-	char *ret;
-	ret =  memchr(str, c, 20);
-	ret = ft_memchr(str, c, 50);
-	printf("%s\n", ret);
-	printf("%s", ret);
+	char c[] = "    +5551wd5645";
+	printf("%d\n%d", ft_atoi(c), atoi(c));
 }
 */
