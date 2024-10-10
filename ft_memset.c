@@ -29,7 +29,7 @@ int	main(void)
 {
 	char str[] = "sasqdwwwwwwwwwwwwwasd";
 	int	c = 65;
-	size_t	count = '\0';
+	size_t	count = 5;
 	printf("%s\n", (char *) ft_memset(str,c,count));
 	printf("%s\n",(char *) memset(str,c,count));
 

@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 18:33:03 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/09 18:33:05 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/10 09:05:14 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/10 09:06:49 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	strlcat(char *dst, const char *src, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t		i;
-	size_t		j;
-	const char	*s;
-	char		*d;
-
+	size_t	i;
+	const char *str;
+	
+	str = (const char *) s;
 	i = 0;
-	j = 0;
-	d = (char *) dst;
-	s = (const char *) src;
-	while (d[i])
-		i++;
-	while (s[j] && j < size)
+	while (i < n)
 	{
-		d[j + i] = s[i];
-		j++;
+		if (str[i] == c)
+			return ((void *) &s[i]);
+		i++;
 	}
-	d[j + i] = '\0';
-	while (s[j])
-		j++;
-	return (i + j);
+	return (NULL);
 }
 
-int	main()
+/*
+int	main(void)
 {
-	char		c[100] = "qd";
-	const char	d[100] = "dddd";
-	int		i = 5;
-	printf("%d""\n""%u", ft_strlcat(c,d,i), strlcat(c,d,i));
+
+
+	int	c;
+	const char	str[36]= "abcdeffsewfsdfwef";
+	c = 'f';
+	char *ret;
+	ret =  memchr(str, c, 20);
+	ret = ft_memchr(str, c, 50);
+	printf("%s\n", ret);
+	printf("%s", ret);
 }
+*/
