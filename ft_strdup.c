@@ -15,7 +15,7 @@
 char	*ft_strdup(const char *s)
 {
 	char	*new;
-	int	i;
+	int		i;
 
 	i = 0;
 	i = ft_strlen(s);
@@ -29,7 +29,7 @@ char	*ft_strdup(const char *s)
 		i++;
 	}
 	new[i] = '\0';
-	return (new);	
+	return (new);
 }
 
 /*

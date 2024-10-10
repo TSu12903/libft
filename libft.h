@@ -38,11 +38,14 @@ void		*ft_memcpy(void *dest, const void *src, size_t n);
 unsigned	int	ft_strlcat(char *dst, const char *src, size_t size);
 int			ft_strncmp(char *s1, char *s2, unsigned int n);
 void		*ft_memchr(const void *s, int c, size_t n);
-unsigned int	ft_strlcpy(char *dst, char *src, size_t size);
+unsigned	int	ft_strlcpy(char *dst, char *src, size_t size);
 int			ft_atoi(const char *nptr);
 void		*ft_calloc(size_t nmemb, size_t size);
 char		*ft_strdup(const char *s);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
+int			ft_memcmp(const void *s1, const void *s2, size_t n);
+void			ft_putstr_fd(char *s, int fd);
+void			ft_putchar_fd(char c, int fd);
 
 #endif
