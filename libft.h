@@ -26,7 +26,7 @@
 
 char		*ft_strjoin(char const *s1, char const *s2);
 int			ft_isalpha(int c);
-int			ft_strlen(char const *s);
+size_t			ft_strlen(char const *s);
 int			ft_isascii(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);
