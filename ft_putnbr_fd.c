@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 09:05:14 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/10 09:06:49 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/11 12:58:45 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/11 12:58:50 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t		i;
-	const char	*str;
+	int	i;
 
-	str = (const char *) s;
-	i = 0;
-	while (i < n)
+	if (n == -2147483648)
 	{
-		if (str[i] == (char )c)
-			return ((void *) &s[i]);
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (NULL);
+	if (n < 0)
+	{
+		n = n * (-1);
+		write(fd, "-", 1);
+	}
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	i =  ((n % 10) + 48);
+	write(fd, &i, 1);
 }
-
-/*
-int	main(void)
-{
-
-
-	int	c;
-	const char	str[36]= "abcdeffsewfsdfwef";
-	c = 'f';
-	char *ret;
-	ret =  memchr(str, c, 20);
-	ret = ft_memchr(str, c, 50);
-	printf("%s\n", ret);
-	printf("%s", ret);
-}
-*/

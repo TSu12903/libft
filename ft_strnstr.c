@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 09:05:14 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/10 09:06:49 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/10 17:59:12 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/10 18:00:24 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t		i;
-	const char	*str;
+	size_t	i;
+	size_t	j;
 
-	str = (const char *) s;
 	i = 0;
-	while (i < n)
+	if (!little[i])
+		return ((char *) big);
+	while (i < len && big[i] != '\0')
 	{
-		if (str[i] == (char )c)
-			return ((void *) &s[i]);
+		j = 0;
+		while (big[i + j] == little[j] && (i + j) < len)
+		{
+			if (little[j + 1] == '\0')
+				return ((char *) &big[i]);
+			j++;
+		}
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
-
 /*
 int	main(void)
 {
-
-
-	int	c;
-	const char	str[36]= "abcdeffsewfsdfwef";
-	c = 'f';
-	char *ret;
-	ret =  memchr(str, c, 20);
-	ret = ft_memchr(str, c, 50);
-	printf("%s\n", ret);
-	printf("%s", ret);
+	size_t	i = 5;
+	const char s1[] = "Bonjour";
+	const char s2[] = "";
+	printf("%s", ft_strnstr(s1, s2, i));
 }
 */
