@@ -9,3 +9,35 @@
 /*   Updated: 2024/10/09 18:33:05 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+
+unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+
+	i = ft_strlen(dst);
+	j = 0;
+	if (i >= size )
+		return (ft_strlen(src) + size);
+	while (j < size - 1 && (i + j) < size - 1 && src[j] )
+	{
+		dst[i + j] = src[j];
+		j++;
+	}
+	dst[i + j] = '\0';
+	return (i + ft_strlen(src));
+	
+}
+
+/*
+int	main(void)
+{
+	char	dst[] = "rrrrrrrrr";
+	char	src[] = "hello";
+	size_t	size = 3;
+	
+	printf("%d", ft_strlcat(dst, src, size));
+}
+*/
