@@ -12,38 +12,38 @@
 
 #include "libft.h"
 
+
+
+
 char	**ft_split(char const *s, char c)
 {
 	size_t		i;
 	size_t		j;
-	char	**str;
+	char		**str;
 	size_t		t;
 	size_t		h;
 
 	i = 0;
 	t = 0;
-	j = ft_strlen(s);
-	while (i < j)
+	if (ft_strlen(s) == 1)
+		return (ft_calloc(1, sizeof(char *)));
+	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		while (s[i] == c && s[i])
 			i++;
-		if (s[i] != c)
-		{
-			while (s[i] != c)
-				i++;
+		if (s[i] != c && s[i])
 			t++;
-		}
-		if (s[i] == '\0' && t == 0)
-			return (ft_calloc(1,sizeof(char*)));
+		while (s[i] != c && s[i])
+			i++;
 	}
-	str = ft_calloc((t + 1), sizeof(char*));
+	str = ft_calloc((t + 1), sizeof(char *));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
 	j = 0;
 	while (j < t)
 	{
-		while (s[i] == c )
+		while (s[i] == c)
 			i++;
 		if (s[i] != c)
 		{
@@ -52,7 +52,7 @@ char	**ft_split(char const *s, char c)
 			{
 				h++;
 			}
-			str[j] = ft_substr(s,i,(h - i));
+			str[j] = ft_substr(s, i, (h - i));
 			if (str[j] == 0)
 			{
 				while (j > 0)
@@ -60,7 +60,7 @@ char	**ft_split(char const *s, char c)
 					free(str[j]);
 					j--;
 				}
-			free(str);
+				free(str);
 			}
 			j++;
 		}
@@ -74,9 +74,9 @@ int	main(void)
 	char	**str;
 	size_t	i;
 	char	c;
-	c = ' ';
+	c = '|';
 	i = 0;
-	str = ft_split("    hh Hhhh qjdoqw ", c);
+	str = ft_split("split  ||this|for|me|||||!|", c);
 	while (str[i])
 	{
 		printf("%s---", str[i]);

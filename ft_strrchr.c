@@ -17,17 +17,27 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = ft_strlen(s) - 1;
 	j = 0;
-	if (s[j] == c)
-		j++;
+	
 	while (s[i])
 	{
-		if (s[i] == (unsigned char)c && i == j)
+		if (s[i] == (unsigned char)c)
 			return ((char *) &s[i]);
-		i++;
+		i--;
 	}
 	if (s[i] == (unsigned char)c)
 		return ((char *) &s[i]);
 	return (0);
 }
+
+/*
+int	main(void)
+{
+	int	c;
+	const char	str[36]= "abcdeffsewfsdfwe";
+	c = 'f';
+	printf("%s\n", ft_strrchr(str, c));
+	printf("%s", strrchr(str, c));
+}
+*/
