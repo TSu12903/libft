@@ -19,16 +19,15 @@ unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 
 	i = ft_strlen(dst);
 	j = 0;
-	if (i >= size )
+	if (i >= size)
 		return (ft_strlen(src) + size);
-	while (j < size - 1 && (i + j) < size - 1 && src[j] )
+	while (j < size - 1 && (i + j) < size - 1 && src[j])
 	{
 		dst[i + j] = src[j];
 		j++;
 	}
 	dst[i + j] = '\0';
 	return (i + ft_strlen(src));
-	
 }
 
 /*

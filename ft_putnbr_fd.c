@@ -28,6 +28,6 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	if (n > 9)
 		ft_putnbr_fd(n / 10, fd);
-	i =  ((n % 10) + 48);
+	i = ((n % 10) + 48);
 	write(fd, &i, 1);
 }

@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/11 11:29:23 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/11 11:29:27 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/14 09:45:06 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/14 09:45:09 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+char	**ft_split(char const *s, char c)
 {
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
-}
-/*
-int	main(void)
-{
-	char	s[] = "Hello";
-	int	fd = 1;
+	int		i;
+	int		j;
+	char	*str;
 
-	ft_putendl_fd(s,fd);
+	j = ft_strlen(s);
+	
 }
-*/
