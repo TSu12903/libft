@@ -12,21 +12,21 @@
 
 #include "libft.h"
 
-
-
-
-char	**ft_split(char const *s, char c)
+static void	ft_free(char **str, size_t j)
 {
-	size_t		i;
-	size_t		j;
-	char		**str;
-	size_t		t;
-	size_t		h;
+	if (str[j] == 0)
+	{
+		while (j > 0)
+		{
+			free(str[j]);
+			j--;
+		}
+		free(str);
+	}
+}
 
-	i = 0;
-	t = 0;
-	if (ft_strlen(s) == 1)
-		return (ft_calloc(1, sizeof(char *)));
+static size_t	ft_count(char const *s, char c, int i, int t)
+{
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i])
@@ -36,9 +36,15 @@ char	**ft_split(char const *s, char c)
 		while (s[i] != c && s[i])
 			i++;
 	}
-	str = ft_calloc((t + 1), sizeof(char *));
-	if (str == NULL)
-		return (NULL);
+	return (t);
+}
+
+static void	ft_string(char const *s, char c, size_t t, char **str )
+{
+	size_t	i;
+	size_t	j;
+	size_t	h;
+
 	i = 0;
 	j = 0;
 	while (j < t)
@@ -49,23 +55,28 @@ char	**ft_split(char const *s, char c)
 		{
 			h = i;
 			while (s[h] != c && s[h])
-			{
 				h++;
-			}
 			str[j] = ft_substr(s, i, (h - i));
-			if (str[j] == 0)
-			{
-				while (j > 0)
-				{
-					free(str[j]);
-					j--;
-				}
-				free(str);
-			}
+			ft_free(str, j);
 			j++;
 		}
 		i = h;
 	}
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t		i;
+	char		**str;
+	size_t		t;
+
+	i = 0;
+	t = 0;
+	t = ft_count(s, c, i, t);
+	str = ft_calloc((t + 1), sizeof(char *));
+	if (str == NULL)
+		return (NULL);
+	ft_string(s, c, t, str);
 	return (str);
 }
 /*
