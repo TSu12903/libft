@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 10:40:33 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/10 10:40:37 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/15 09:02:41 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/15 09:02:57 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dst, char *src, size_t size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
+	char	*str;
 
 	i = 0;
-	if (size)
+	str = ft_strdup(s);
+	if (str == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		while (*src && i < size - 1)
-		{
-			*dst++ = *src++;
-			i++;
-		}
-		*dst = 0;
+		str[i] = f(i,s[i]);
+		i++;
 	}
-	return (ft_strlen(src) + i);
+	return (str);
 }

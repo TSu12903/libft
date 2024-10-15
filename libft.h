@@ -17,9 +17,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
-# include <ctype.h>
 
 // ecrire size_t au lieu de unsigned int
 // typedef size_t	unsigned int;
@@ -54,5 +51,7 @@ char		*ft_strtrim(char const *s1, char const *set);
 void		ft_putnbr_fd(int n, int fd);
 char		**ft_split(char const *s, char c);
 char		*ft_strrchr(const char *s, int c);
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
