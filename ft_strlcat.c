@@ -17,6 +17,8 @@ unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	j;
 
+	if ((dst == 0 && size == 0) || (src == 0 && size == 0))
+		return (0);
 	i = ft_strlen(dst);
 	j = 0;
 	if (i >= size)

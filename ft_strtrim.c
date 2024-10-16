@@ -50,6 +50,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	i = 0;
 	start = 0;
+	if ( s1 == 0 || set == 0)
+		return (0);
 	while (ft_verif(s1[i], set))
 	{
 		start++;
