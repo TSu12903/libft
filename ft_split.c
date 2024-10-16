@@ -3,102 +3,84 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mlahonta <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 09:45:06 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/14 09:45:09 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/16 10:29:14 by mlahonta          #+#    #+#             */
+/*   Updated: 2024/10/16 10:29:15 by mlahonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	ft_free(char **str, size_t j)
+static void	ft_free(int l, char **str)
 {
-	while (j > 0)
+	while (l + 1 > 0)
 	{
-		free(str[j]);
-		j--;
+		free(str[l]);
+		l--;
 	}
 	free(str);
-	return (0);
 }
 
-static size_t	ft_count(char const *s, char c, int i, int t)
+static char	**ft_string1(size_t j, char const *s, char **str, char c)
+{
+	size_t	l;
+	size_t	h;
+	size_t	i;
+
+	l = 0;
+	h = 0;
+	i = 0;
+	while (j--)
+	{
+		i = i + h;
+		h = 0;
+		while (s[i] == c && s[i])
+			i++;
+		while (s[i + h] != c && s[i + h] != '\0')
+			h++;
+		str[l] = ft_substr(s, i, h);
+		if (str[l] == 0)
+		{
+			ft_free(l, str);
+			return (0);
+		}
+		l++;
+	}
+	return (str);
+}
+
+static int	ft_count1(char const *s, char c, size_t i, size_t j)
 {
 	while (s[i] != '\0')
 	{
 		while (s[i] == c && s[i])
 			i++;
 		if (s[i] != c && s[i])
-			t++;
+			j++;
 		while (s[i] != c && s[i])
 			i++;
 	}
-	return (t);
-}
-
-static void	ft_string(char const *s, char c, size_t t, char **str )
-{
-	size_t	i;
-	size_t	j;
-	size_t	h;
-
-	i = 0;
-	j = 0;
-	while (j < t)
-	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != c)
-		{
-			h = i;
-			while (s[h] != c && s[h])
-				h++;
-			str[j] = ft_substr(s, i, (h - i));
-			if (str[j] == 0)
-				ft_free(str, j);
-			j++;
-		}
-		i = h;
-	}
+	return (j);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	size_t		i;
-	char		**str;
-	size_t		t;
-
-	i = 0;
-	t = 0;
-	if (s == 0)
-		return (0);
-	if (ft_strlen(s) == 1)
-		return (ft_calloc((1), sizeof(char *)));
-	t = ft_count(s, c, i, t);
-	if (!t)
-		return (ft_calloc(1, sizeof(char *)));
-	str = ft_calloc((t + 1), sizeof(char *));
-	if (str == NULL)
-		return (NULL);
-	ft_string(s, c, t, str);
-	return (str);
-}
-
-/*
-#include <stdio.h>
-int	main(void)
-{
 	char	**str;
 	size_t	i;
-	char	c;
-	c = '|';
+	size_t	j;
+
+	if (s == 0)
+		return (0);
+	if (ft_strlen(s) == 0)
+		return (ft_calloc(1, sizeof(char *)));
+	j = ft_count1(s, c, 0, 0);
+	if (j == 0)
+		return (ft_calloc(1, sizeof(char *)));
+	str = ft_calloc(j + 1, sizeof(char *));
+	if (str == 0)
+		return (0);
 	i = 0;
-	str = ft_split("split  ||this|for|me|||||!|", c);
-	while (str[i])
-	{
-		printf("%s---", str[i]);
-		i++;
-	}
+	str = ft_string1(j, s, str, c);
+	return (str);
 }
-*/

@@ -16,6 +16,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	char	*new;
 
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > (size_t) - 1 / size)
+		return (NULL); 
 	new = malloc(size * (nmemb));
 	if (new == NULL)
 		return (NULL);

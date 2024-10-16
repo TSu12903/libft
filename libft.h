@@ -18,8 +18,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-// ecrire size_t au lieu de unsigned int
-// typedef size_t	unsigned int;
+typedef struct	s_list
+{
+	void	*content;
+	struct	s_list *next;
+}		t_list;
 
 char		*ft_strjoin(char const *s1, char const *s2);
 int			ft_isalpha(int c);
@@ -33,7 +36,7 @@ char		*ft_strchr(const char *s, int c);
 void		ft_bzero(void *s, size_t n);
 void		*ft_memcpy(void *dest, const void *src, size_t n);
 unsigned	int	ft_strlcat(char *dst, const char *src, size_t size);
-int			ft_strncmp(char *s1, char *s2, unsigned int n);
+int			ft_strncmp(char *s1, char *s2, size_t n);
 void		*ft_memchr(const void *s, int c, size_t n);
 unsigned	int	ft_strlcpy(char *dst, char *src, size_t size);
 int			ft_atoi(const char *nptr);
@@ -55,5 +58,9 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 char		*ft_itoa(int n);
 void		*ft_memmove(void *dest, const void *src, size_t n);
+t_list 		*ft_lstnew(void *content);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+int		ft_lstsize(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
 
 #endif
