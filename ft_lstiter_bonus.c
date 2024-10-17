@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 10:59:59 by tcybak            #+#    #+#             */
-/*   Updated: 2024/07/17 17:52:05 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/17 13:26:11 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/17 13:27:09 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	i;
-
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (i < n - 1 && s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	if (lst == NULL || f == NULL)
+		return ;
+	while (lst -> next != NULL)
+	{
+		f(lst -> content);
+		lst = lst -> next;
+	}
+	f(lst -> content);
 }

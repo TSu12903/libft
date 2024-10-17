@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/10 12:16:05 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/10 12:16:08 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/17 13:48:23 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/17 13:48:26 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*new;
+	t_list	*str;
+	t_list	*new;
+	void	*content;
 
-	if (nmemb == 0 || size == 0)
-		return (malloc(0));
-	if (nmemb > (size_t) - 1 / size)
+	if (f == NULL || lst == NULL)
 		return (NULL);
-	new = malloc(size * (nmemb));
-	if (new == NULL)
-		return (NULL);
-	ft_bzero(new, size * nmemb);
-	return ((void *) new);
+	new = NULL;
+	while (lst != NULL)
+	{
+		str = NULL;
+		content = f(lst -> content);
+		if (content != NULL)
+			str = ft_lstnew(content);
+		if (str == NULL)
+		{
+			del(content);
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, str);
+		lst = lst -> next;
+	}
+	return (new);
 }
