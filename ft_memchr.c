@@ -27,19 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*
-int	main(void)
-{
-
-
-	int	c;
-	const char	str[36]= "abcdeffsewfsdfwef";
-	c = 'z';
-	char *ret;
-	ret =  memchr(str, c, 20);
-	ret = ft_memchr(str, c, 50);
-	printf("%s\n", ret);
-	printf("%s", ret);
-}
-*/

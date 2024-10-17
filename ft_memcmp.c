@@ -29,13 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }
-/*
-int	main(void)
-{
-	char	*s1 = "\xff\0\0\xaa\0\xde\xffMACOSX\xff";
- 	char	*s2 = "\xff\0\0\xaa\0\xde\x00MBS";
- 	size_t	size = 9;
- 	printf("%d", ft_memcmp(s1, s2, size));
- 	printf("%d", memcmp(s1, s2, size));
-}
-*/

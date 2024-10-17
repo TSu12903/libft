@@ -39,16 +39,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new[i + j] = '\0';
 	return (new);
 }
-/*
-int	main(int argc, char **argv)
-{
-	char *new;
-	
-	if(argc == 3)
-	{
-		new = ft_strjoin(argv[1], argv[2]);
-		printf("%s", new);
-	}
-	return (0);
-}
-*/

@@ -18,11 +18,3 @@ int	ft_isalpha(int c)
 		return (0);
 	return (1);
 }
-
-/*
-#include <stdio.h>
-int	main(void)
-{
-	printf("%d", ft_isalpha(95));
-}
-*/

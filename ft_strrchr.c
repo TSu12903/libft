@@ -25,13 +25,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	int	c;
-	const char	str[36]= "abcdeffsewfsdfwe";
-	c = 'f';
-	printf("%s\n", ft_strrchr(str, c));
-	printf("%s", strrchr(str, c));
-}
-*/

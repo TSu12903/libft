@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_atoi(const char *nptr)
 {
 	int	i;
@@ -38,10 +36,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (nb * symbol);
 }
-/*
-int	main()
-{
-	char c[] = "    +5551wd5645";
-	printf("%d\n%d", ft_atoi(c), atoi(c));
-}
-*/

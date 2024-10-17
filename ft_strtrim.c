@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_verif(char const chr, char const *set)
 {
@@ -68,11 +67,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	str = ft_substr(s1, start, i);
 	return (str);
 }
-/*
-int	main(void)
-{
-	char s1[]= "fjqofffff";
-	char set[]= "ab";
-	printf("%s", ft_strtrim(s1, set));
-}
-*/

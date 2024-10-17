@@ -31,11 +31,3 @@ char	*ft_strdup(const char *s)
 	new[i] = '\0';
 	return (new);
 }
-
-/*
-int	main()
-{
-	char	c[] = "aaaab";
-	printf("%s""\n""%s", ft_strdup(c), strdup(c));
-}
-*/

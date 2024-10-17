@@ -62,10 +62,3 @@ char	*ft_itoa(int n)
 	ft_print(str, nb, i, negat);
 	return (str);
 }
-/*
-int	main()
-{
-	int	c =-2147483648;
-	printf("%s", ft_itoa(c));
-}
-*/

@@ -31,14 +31,3 @@ unsigned int	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[i + j] = '\0';
 	return (i + ft_strlen(src));
 }
-
-/*
-int	main(void)
-{
-	char	dst[] = "rrrrrrrrr";
-	char	src[] = "hello";
-	size_t	size = 3;
-	
-	printf("%d", ft_strlcat(dst, src, size));
-}
-*/

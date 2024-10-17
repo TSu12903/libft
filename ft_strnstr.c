@@ -33,12 +33,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	size_t	i = 5;
-	const char s1[] = "Bonjour";
-	const char s2[] = "";
-	printf("%s", ft_strnstr(s1, s2, i));
-}
-*/
