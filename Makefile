@@ -29,10 +29,10 @@ bonus: $(OBJ_BONUS)
 
 $(OBJ_BONUS) :
 	$(CC) $(SRC) $(SRC_BONUS) $(CFLAGS)
-	$(AR) $(NAME) $(OBJ_BONUS) $(OBJ)
+	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 	
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
 fclean: clean
 	rm -f $(NAME)
-re: fclean all
+re: fclean all 
