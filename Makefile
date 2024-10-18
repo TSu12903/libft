@@ -35,4 +35,4 @@ clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
 fclean: clean
 	rm -f $(NAME)
-re: fclean all 
+re: fclean all
