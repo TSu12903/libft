@@ -10,19 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// si header pas defini fait la suite sinon non
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 char		*ft_strjoin(char const *s1, char const *s2);
 int			ft_isalpha(int c);
@@ -67,5 +70,13 @@ void		ft_lstdelone(t_list *lst, void (*del)(void*));
 void		ft_lstclear(t_list **lst, void (*del)(void*));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int			ft_printf(const char *form, ...);
+int			ft_printadd1(size_t c);
+int			ft_putchar(char c);
+int			ft_putstr(char *c);
+void		ft_printu(unsigned int n, int *i);
+int			ft_putnbr(int n);
+void		ft_printhex(unsigned int n, char *base, int *i);
+char		*get_next_line(int fd);
 
 #endif

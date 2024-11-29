@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                          :+:      :+:    :+:*/
+/*   check_x_X.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:22:09 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 11:22:13 by tcybak           ###   ########.fr       */
+/*   Created: 2024/11/04 11:04:05 by tcybak            #+#    #+#             */
+/*   Updated: 2024/11/04 11:04:08 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+void	ft_printhex(unsigned int n, char *base, int *i)
 {
-	if ((c < 65 || c > 90) && (c < 97 || c > 122))
-		return (0);
-	return (1);
+	if (n >= 16)
+		ft_printhex((n) / 16, base, i);
+	n = n % 16;
+	*i += write(1, base + n, 1);
 }
