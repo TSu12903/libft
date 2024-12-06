@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                          :+:      :+:    :+:*/
+/*   check_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:22:09 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 11:22:13 by tcybak           ###   ########.fr       */
+/*   Created: 2024/11/04 11:03:43 by tcybak            #+#    #+#             */
+/*   Updated: 2024/11/04 11:03:46 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+int	ft_putstr(char *c)
 {
-	if ((c < 65 || c > 90) && (c < 97 || c > 122))
-		return (0);
-	return (1);
+	int	i;
+
+	if (c == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	i = ft_strlen(c);
+	write(1, c, i);
+	return (i);
 }

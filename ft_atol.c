@@ -1,18 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                          :+:      :+:    :+:*/
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcybak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/08 11:22:09 by tcybak            #+#    #+#             */
-/*   Updated: 2024/10/08 11:22:13 by tcybak           ###   ########.fr       */
+/*   Created: 2024/10/10 11:12:08 by tcybak            #+#    #+#             */
+/*   Updated: 2024/10/10 11:12:11 by tcybak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+long	ft_atol(const char *nptr)
 {
-	if ((c < 65 || c > 90) && (c < 97 || c > 122))
-		return (0);
-	return (1);
+	long	i;
+	long	symbol;
+	long	nb;
+
+	i = 0;
+	symbol = 1;
+	nb = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= '\t' && nptr[i] <= '\r'))
+	{
+		i++;
+	}
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			symbol = -symbol ;
+		i++;
+	}
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		nb = 10 * nb + nptr[i] - '0';
+		i++;
+	}
+	return (nb * symbol);
 }
