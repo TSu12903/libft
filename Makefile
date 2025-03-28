@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tcybak <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: tcybak <tcybak@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/08 10:12:04 by tcybak            #+#    #+#              #
-#    Updated: 2024/10/08 10:12:40 by tcybak           ###   ########.fr        #
+#    Updated: 2025/01/14 17:08:12 by tcybak           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,18 +22,20 @@ ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_
 ft_substr.c ft_toupper.c ft_tolower.c ft_printf.c check_p.c check_u_i.c check_x_X.c check_u.c\
 check_s.c untils.c ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlast_bonus.c\
 ft_lstdelone_bonus.c ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c\
-get_next_line_utils_bonus.c get_next_line_bonus.c ft_atol.c\
+get_next_line.c ft_atol.c\
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -c $(SRC) $(CFLAGS)
-	$(AR) $(NAME) $(OBJ)
+	@$(CC) -c $(SRC) $(CFLAGS)
+	@$(AR) $(NAME) $(OBJ)
 	
 clean:
-	rm -f $(OBJ)
+	@rm -f $(OBJ)
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 re: fclean all
+
+.PHONY : all clean fclean re
